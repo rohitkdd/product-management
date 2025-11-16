@@ -9,4 +9,9 @@
   padding: 1rem;
   display: flex;
   justify-content: center;
+
+
+  @media (max-width: 599px) {
+    padding: 1rem 0;
+  }
 }

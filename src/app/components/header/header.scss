@@ -32,3 +32,27 @@
   }
 
 }
+
+/* Media queries */
+@media (max-width: 599px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    .nav {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .branding {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .header-container {
+    padding: 0 0.5rem;
+  }
+}
