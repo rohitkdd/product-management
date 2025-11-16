@@ -44,3 +44,21 @@
   }
 
 }
+
+@media (max-width: 599px) {
+  .product-card {
+    width: 90%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .product-card {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-card {
+    width: 300px;
+  }
+}
