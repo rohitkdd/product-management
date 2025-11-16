@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import './_variables.scss';
+html,
+body {
+    height: 100%;
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+.container {
+  max-width: 1200px;     // limit width for large screens
+  padding: 0 1.5rem;     // same left/right spacing as your header
+  margin: 0 auto;        // centers the container horizontally
+}
+
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.layout-content {
+  flex: 1;
+  padding: 2rem 0;
+}

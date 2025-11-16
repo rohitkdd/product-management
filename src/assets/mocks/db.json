@@ -1,0 +1,81 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop Pro 15",
+      "description": "15-inch laptop with high performance for professionals",
+      "category": "Electronics",
+      "price": 1499.99,
+      "stock": 25,
+      "imageUrl": "https://picsum.photos/id/180/400/300",
+      "rating": 4.7,
+      "tags": ["laptop", "electronics", "pro"]
+    },
+    {
+      "id": 2,
+      "name": "Wireless Keyboard",
+      "description": "Compact and ergonomic wireless keyboard with backlight",
+      "category": "Accessories",
+      "price": 59.99,
+      "stock": 120,
+      "imageUrl": "https://picsum.photos/id/1050/400/300",
+      "rating": 4.3,
+      "tags": ["keyboard", "wireless", "accessories"]
+    },
+    {
+      "id": 3,
+      "name": "Gaming Mouse",
+      "description": "High precision gaming mouse with RGB lighting",
+      "category": "Accessories",
+      "price": 79.99,
+      "stock": 80,
+      "imageUrl": "https://picsum.photos/id/1062/400/300",
+      "rating": 4.5,
+      "tags": ["mouse", "gaming", "accessories"]
+    },
+    {
+      "id": 4,
+      "name": "Smartphone X20",
+      "description": "Latest X20 smartphone with 128GB storage and OLED display",
+      "category": "Electronics",
+      "price": 999.99,
+      "stock": 50,
+      "imageUrl": "https://picsum.photos/id/1080/400/300",
+      "rating": 4.6,
+      "tags": ["smartphone", "electronics", "mobile"]
+    },
+    {
+      "id": 5,
+      "name": "Noise-Cancelling Headphones",
+      "description": "Over-ear headphones with active noise cancellation",
+      "category": "Audio",
+      "price": 199.99,
+      "stock": 60,
+      "imageUrl": "https://picsum.photos/id/1075/400/300",
+      "rating": 4.4,
+      "tags": ["headphones", "audio", "wireless"]
+    },
+    {
+      "id": 6,
+      "name": "Smartwatch Series 7",
+      "description": "Waterproof smartwatch with fitness tracking and notifications",
+      "category": "Wearables",
+      "price": 299.99,
+      "stock": 45,
+      "imageUrl": "https://picsum.photos/id/1025/400/300",
+      "rating": 4.5,
+      "tags": ["smartwatch", "wearables", "fitness"]
+    },
+    {
+      "id": 7,
+      "name": "4K Monitor 27\"",
+      "description": "27-inch 4K monitor with HDR support and high refresh rate",
+      "category": "Electronics",
+      "price": 399.99,
+      "stock": 30,
+      "imageUrl": "https://picsum.photos/id/1015/400/300",
+      "rating": 4.6,
+      "tags": ["monitor", "electronics", "display"]
+    }
+  ]
+}
