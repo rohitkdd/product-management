@@ -6,16 +6,16 @@
             <div class="form-fields-wrapper">
 
                 <div class="field">
-                    <input name="name" type="text" [(ngModel)]="newProduct.name" #productName="ngModel"
-                        placeholder="Product name" required />
+                    <input data-testid="input-name" name="name" type="text" [(ngModel)]="newProduct.name"
+                        #productName="ngModel" placeholder="Product name" required />
                     <div class="error-message" *ngIf="productName.invalid && productName.touched">
                         Product name is required
                     </div>
                 </div>
 
                 <div class="field">
-                    <input name="price" type="number" [(ngModel)]="newProduct.price" #productPrice="ngModel"
-                        placeholder="Price (AED)" min="0.01" required />
+                    <input data-testid="input-price" name="price" type="number" [(ngModel)]="newProduct.price"
+                        #productPrice="ngModel" placeholder="Price (AED)" min="0.01" required />
                     <div class="error-message" *ngIf="productPrice.invalid && productPrice.touched">
                         Price cannot be less than 0
                     </div>
@@ -28,7 +28,8 @@
 
 
             <div class="actions">
-                <button type="submit" [disabled]="addForm.invalid || isLoading">Add Product</button>
+                <button data-testid="add-product-btn" type="submit">Add
+                    Product</button>
             </div>
 
             <p class="hint">If image URL is invalid, a placeholder will be used.</p>
@@ -47,24 +48,25 @@
         <div *ngIf="isLoading" class="loading">Loading…</div>
 
         <div class="products-grid">
-            <article class="product-card" *ngFor="let p of products">
+            <article [attr.data-testid]="'product-card-' + p.id" class="product-card" *ngFor="let p of products">
                 <ng-container *ngIf="editId === p.id; else viewMode">
                     <div class="edit-fields">
                         <form #editForm="ngForm">
-                            <input type="text" name="editName" [(ngModel)]="editProduct!.name"
-                                #editProductName="ngModel" required />
+                            <input [attr.data-testid]="'editName-' + p.id" type="text" name="editName"
+                                [(ngModel)]="editProduct!.name" #editProductName="ngModel" required />
                             <div class="error-message" *ngIf="editProductName.invalid && editProductName.touched">
                                 Product name is required
                             </div>
-                            <input type="number" name="editPrice" [(ngModel)]="editProduct!.price"
-                                #editProductPrice="ngModel" min="0.01" required />
+                            <input [attr.data-testid]="'editPrice-' + p.id" type="number" name="editPrice"
+                                [(ngModel)]="editProduct!.price" #editProductPrice="ngModel" min="0.01" required />
                             <div class="error-message" *ngIf="editProductPrice.invalid && editProductPrice.touched">
                                 Price cannot be less than 0
                             </div>
                             <input type="text" name="editImage" [(ngModel)]="editProduct!.image"
                                 placeholder="Image URL" />
                             <div class="card-actions">
-                                <button (click)="saveEdit(editForm)"
+                                <button [attr.data-testid]="'submit-btn-' + p.id" data-testid="submit-btn"
+                                    (click)="saveEdit(editForm)"
                                     [disabled]="editForm.invalid || isLoading">Save</button>
                                 <button (click)="cancelEdit()">Cancel</button>
                             </div>
@@ -78,12 +80,12 @@
                             (error)="$event.target.src = fallbackImage" />
                     </div>
                     <div class="content">
-                        <h3 class="title">{{ p.name }}</h3>
-                        <p class="price">{{ formatCurrency(p.price) }}</p>
+                        <h3 data-testid="product-name" class="title">{{ p.name }}</h3>
+                        <p data-testid="product-price" class="price">{{ formatCurrency(p.price) }}</p>
                     </div>
                     <div class="card-actions">
-                        <button (click)="edit(p)">Edit</button>
-                        <button (click)="deleteProduct(p.id)">Delete</button>
+                        <button data-testid="edit-btn" (click)="edit(p)">Edit</button>
+                        <button data-testid="delete-btn" (click)="deleteProduct(p.id)">Delete</button>
                     </div>
                 </ng-template>
             </article>
