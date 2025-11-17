@@ -63,25 +63,6 @@ json-server --watch db.json --port 3000
 ```
 Make sure to update the API URL in your Angular service if needed.
 
-src/
-│
-├─ app/
-│   ├─ components/
-│   │   ├─ footer/              # Footer component
-│   │   ├─ header/              # Header component with navigation and mobile menu
-│   │   ├─ product/
-│   │       ├─ models/          # Product model interfaces
-│   │       ├─ product-list/    # Product listing, add, edit, delete
-│   │       ├─ services/        # Product services
-│   ├─ app.module.ts
-│   └─ main.ts
-│
-├─ assets/
-│   └─ mocks/                   # Mock data
-│
-└─ styles/
-    └─ scss/                    # SCSS variables and global styles
-
 ### Static Files
 
 - **public/**: Contains static files that are served directly (e.g. Images,icons, etc.)
@@ -89,7 +70,7 @@ Example usage in templates:
 
 ```html
   <img src="/images/image-not-found.jpg" alt="Image not found">
-
+```
 ## Development server
 
 To start a local development server, run:
