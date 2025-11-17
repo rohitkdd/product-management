@@ -1,0 +1,93 @@
+<div class="product-list-wrapper">
+    <section class="add-section">
+        <form (ngSubmit)="addProduct(addForm)" #addForm="ngForm" class="add-form">
+            <h2>Add Product</h2>
+
+            <div class="form-fields-wrapper">
+
+                <div class="field">
+                    <input name="name" type="text" [(ngModel)]="newProduct.name" #productName="ngModel"
+                        placeholder="Product name" required />
+                    <div class="error-message" *ngIf="productName.invalid && productName.touched">
+                        Product name is required
+                    </div>
+                </div>
+
+                <div class="field">
+                    <input name="price" type="number" [(ngModel)]="newProduct.price" #productPrice="ngModel"
+                        placeholder="Price (AED)" min="0.01" required />
+                    <div class="error-message" *ngIf="productPrice.invalid && productPrice.touched">
+                        Price cannot be less than 0
+                    </div>
+                </div>
+
+                <div class="field">
+                    <input name="image" type="text" [(ngModel)]="newProduct.image" placeholder="Image URL (optional)" />
+                </div>
+            </div>
+
+
+            <div class="actions">
+                <button type="submit" [disabled]="addForm.invalid || isLoading">Add Product</button>
+            </div>
+
+            <p class="hint">If image URL is invalid, a placeholder will be used.</p>
+        </form>
+
+        <div class="success-message-container">
+            <div *ngIf="successMessage" class="success-message">
+                <p>{{ successMessage }}</p>
+                <span (click)="removeSuccessMessage()">X</span>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="list-section">
+        <div *ngIf="isLoading" class="loading">Loading…</div>
+
+        <div class="products-grid">
+            <article class="product-card" *ngFor="let p of products">
+                <!-- Edit Mode -->
+                <ng-container *ngIf="editId === p.id; else viewMode">
+                    <div class="edit-fields">
+                        <form #editForm="ngForm">
+                            <input type="text" name="editName" [(ngModel)]="editProduct.name" #editProductName="ngModel"
+                                required />
+                            <div class="error-message" *ngIf="editProductName.invalid && editProductName.touched">
+                                Product name is required
+                            </div>
+                            <input type="number" name="editPrice" [(ngModel)]="editProduct.price"
+                                #editProductPrice="ngModel" min="0.01" required />
+                            <div class="error-message" *ngIf="editProductPrice.invalid && editProductPrice.touched">
+                                Price cannot be less than 0
+                            </div>
+                            <input type="text" name="editImage" [(ngModel)]="editProduct.image"
+                                placeholder="Image URL" />
+                            <div class="card-actions">
+                                <button (click)="saveEdit()" [disabled]="editForm.invalid || isLoading">Save</button>
+                                <button (click)="cancelEdit()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </ng-container>
+
+                <!-- View Mode -->
+                <ng-template #viewMode>
+                    <div class="media">
+                        <img [src]="p.image || fallbackImage" [alt]="p.name"
+                            (error)="$event.target.src = fallbackImage" />
+                    </div>
+                    <div class="content">
+                        <h3 class="title">{{ p.name }}</h3>
+                        <p class="price">{{ formatCurrency(p.price) }}</p>
+                    </div>
+                    <div class="card-actions">
+                        <button (click)="enableEdit(p)">Edit</button>
+                        <button (click)="deleteProduct(p.id)">Delete</button>
+                    </div>
+                </ng-template>
+            </article>
+        </div>
+    </section>
+</div>

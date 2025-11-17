@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
-import { ProductList } from './components/product-list/product-list';
+import { AddProduct } from './components/product/add-product/add-product';
+import { ProductList } from './components/product/product-list/product-list';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     App,
     Header,
     Footer,
-    ProductList
+    ProductList,
+    AddProduct
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
