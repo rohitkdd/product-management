@@ -1,6 +1,94 @@
-# ProductWeb
+# Product Management Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+## Overview
+
+This is a **Product Management web application** built with **Angular**. It allows users to:
+
+- Add new products.
+- Edit existing product details.
+- Delete products.
+- View a list of products.
+
+The application is designed as a **Single-page application (SPA)** with responsive design for mobile and desktop devices. It includes **Cypress integration tests** to verify key functionalities.
+
+---
+
+## Features
+
+- Form validation for required fields and price constraints.
+- Smooth scrolling between sections without page reload.
+- Responsive design with a hamburger menu for mobile devices.
+- Inline editing of product details.
+- Success and error messages for user interactions.
+- Integration tests for adding, editing, deleting, and validating products.
+
+---
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)  
+- [Angular CLI](https://angular.io/cli) (v20)  
+- npm or yarn package manager  
+
+Optional for testing:  
+- [Cypress](https://www.cypress.io/) (installed as a dev dependency)
+
+---
+
+## Setup Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/rohitkdd/product-management.git
+cd product-web
+```
+2. **Install dependencies**
+```bash
+npm install
+# or
+yarn install
+```
+3. **Start the application**
+```bash
+npm run dev 
+# or
+ng serve
+```
+Open your browser at http://localhost:4200
+4. **(Optional) Start mock API server**
+```bash
+npm install -g json-server
+json-server --watch db.json --port 3000
+```
+Make sure to update the API URL in your Angular service if needed.
+
+src/
+│
+├─ app/
+│   ├─ components/
+│   │   ├─ footer/              # Footer component
+│   │   ├─ header/              # Header component with navigation and mobile menu
+│   │   ├─ product/
+│   │       ├─ models/          # Product model interfaces
+│   │       ├─ product-list/    # Product listing, add, edit, delete
+│   │       ├─ services/        # Product services
+│   ├─ app.module.ts
+│   └─ main.ts
+│
+├─ assets/
+│   └─ mocks/                   # Mock data
+│
+└─ styles/
+    └─ scss/                    # SCSS variables and global styles
+
+### Static Files
+
+- **public/**: Contains static files that are served directly (e.g. Images,icons, etc.)
+Example usage in templates:
+
+```html
+  <img src="/images/image-not-found.jpg" alt="Image not found">
 
 ## Development server
 
@@ -49,7 +137,7 @@ ng test
 For end-to-end (e2e) testing, run:
 
 ```bash
-ng e2e
+npx cypress open
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
