@@ -1,6 +1,6 @@
 <header class="app-header">
     <div class="left-section">
-        <button class="hamburger" (click)="toggleMenu()">
+        <button class="hamburger" [class.open]="menuOpen" (click)="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
@@ -9,9 +9,8 @@
         <h1>Product</h1>
     </div>
 
-    <nav [class.open]="menuOpen" class="nav-links">
-        <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
-        <a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a>
-        <a routerLink="/add" routerLinkActive="active" (click)="closeMenu()">Add Product</a>
+    <nav [class.mobile-open]="menuOpen" [class.mobile-collapsed]="!menuOpen" class="nav-links">
+        <a [routerLink]="['/']" fragment="add-section">Add Product</a>
+        <a [routerLink]="['/']" fragment="list-section">Products</a>
     </nav>
 </header>
