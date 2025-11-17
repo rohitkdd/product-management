@@ -55,7 +55,8 @@ npm run dev
 # or
 ng serve
 ```
-Open your browser at http://localhost:4200
+Open your browser at http://localhost:4200.
+
 4. **(Optional) Start mock API server**
 ```bash
 npm install -g json-server
