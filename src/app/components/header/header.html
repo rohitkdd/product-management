@@ -1,13 +1,17 @@
-<header class="header">
-    <div class="container">
-        <div class="header-container">
-            <h1 class="branding">Product</h1>
-            <nav class="nav">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">Products</a>
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Contact</a>
-            </nav>
-        </div>
+<header class="app-header">
+    <div class="left-section">
+        <button class="hamburger" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1>Product</h1>
     </div>
+
+    <nav [class.open]="menuOpen" class="nav-links">
+        <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
+        <a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a>
+        <a routerLink="/add" routerLinkActive="active" (click)="closeMenu()">Add Product</a>
+    </nav>
 </header>
