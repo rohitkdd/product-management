@@ -1,3 +1,5 @@
+@import 'variables';
+
 .product-list-wrapper {
   padding: 2rem 1rem;
 
@@ -94,6 +96,10 @@
       text-align: center;
       padding-bottom: 0.75rem;
 
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeSlideIn 0.75s ease forwards;
+
       .media {
         width: 100%;
         height: 180px;
@@ -161,11 +167,24 @@
         flex-direction: column;
         gap: 0.5rem;
 
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
         input {
           padding: 0.5rem;
           border-radius: 6px;
           border: 1px solid #e5e7eb;
         }
+      }
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }
@@ -178,29 +197,71 @@
 }
 
 .success-message-container {
-  height: 2rem;
-  margin: 1rem 0;
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  width: 90%;
+  max-width: 720px;
   display: flex;
+  justify-content: center;
   align-items: center;
-
+  pointer-events: none;
 }
 
 .success-message {
   color: #16a34a;
   background-color: #dcfce7;
   padding: 0.5rem 1rem;
-  margin: 1.5rem 0;
   border-radius: 6px;
   font-weight: 500;
-  transition: opacity 0.3s ease-in-out;
-  width: 100%;
-  max-width: 720px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeInMessage 0.4s ease forwards;
+  pointer-events: auto;
+
+  &.hide {
+    animation: fadeOutMessage 0.4s ease forwards;
+  }
+
+  span {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-weight: bold;
+  }
 }
 
-@media (max-width: 760px) {
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutMessage {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+
+@media (max-width: 647px) {
   .product-card {
     width: 90%;
     margin: 0 auto;
