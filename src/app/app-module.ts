@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
-import { AddProduct } from './components/product/add-product/add-product';
 import { ProductList } from './components/product/product-list/product-list';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,8 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     App,
     Header,
     Footer,
-    ProductList,
-    AddProduct
+    ProductList
   ],
   imports: [
     BrowserModule,
